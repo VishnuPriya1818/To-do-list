@@ -1,10 +1,15 @@
 var express = require('express')
 app = express();
 var mongoose = require('mongoose')
-mongoose.connect("")
+var bodyParser = require('body-parser')
+var todoRoutes = require('./routes/todo')
 app.get('/',(req,res) => {
     res.send('route clear server running')
 })
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true
+}))
+app.use('/api/todos',todoRoutes);
 app.listen(4000,function(){
     console.log('sucess')
 })
