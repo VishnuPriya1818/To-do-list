@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true
 }))
 app.use('/api/todos',todoRoutes);
-app.listen(4000,function(){
-    console.log('sucess')
+
+app.listen(3000,function(){
+    console.log('app running on port'+ 3000)
 })
