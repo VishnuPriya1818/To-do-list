@@ -3,8 +3,9 @@ app = express();
 var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
 var todoRoutes = require('./routes/todo')
+app.use(express.static(__dirname + '/veiws'));
 app.get('/',(req,res) => {
-    res.send('route clear server running')
+    res.sendFile('index.html')
 })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true
