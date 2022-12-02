@@ -1,7 +1,7 @@
 /* global $ */
-$.post('/api/todos',{name: 'start your todos'})
+// $.post('/api/todos',{name: 'start your todos'})
 $(document).ready(function(){
-    $.getJSON("/api/todos")
+    $.get("/api/todos/")
     .then(addTodos)
     
     $('#todoInput').keypress(function(event){
@@ -28,8 +28,9 @@ $(document).ready(function(){
   }
   
   function addTodo(todo){
-    var newTodo = $('<li class="task">'+todo.name +' <span>X</span></li>');
+    var newTodo = $(`<li class="task"> ${todo.name}<span>X</span></li>`);
     newTodo.data('id', todo._id);
+    console.log(todo._id)
     newTodo.data('completed', todo.completed);
     if(todo.completed){
       newTodo.addClass("done");

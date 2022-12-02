@@ -3,9 +3,11 @@ exports.getTodos = (req,res) => {
     // res.send('router working fine');
     db.todo.find()
     .then( (todos) => {
+        console.log(todos)
         res.json(todos);
     })
     .catch( (err)=>{
+        console.log(err)
         res.send(err)
     })
 }
