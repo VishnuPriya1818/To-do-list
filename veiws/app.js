@@ -1,4 +1,5 @@
 /* global $ */
+$.post('/api/todos',{name: 'start your todos'})
 $(document).ready(function(){
     $.getJSON("/api/todos")
     .then(addTodos)
