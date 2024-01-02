@@ -42,7 +42,7 @@ exports.updateTodo = (req,res) => {
     })
 }
 exports.deleteTodo = (req,res) =>{
-    db.todo.remove({ _id:req.params.todoId} )
+    db.todo.findByIdAndDelete(req.params.todoId)
     .then( () =>{
         res.json({message:'deleted todo'})
     })
